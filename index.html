@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, maximum-scale=1, target-densityDPI=device-dpi"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>HTML5 Site</title>
+		<link media="all" rel="stylesheet" href="style.css" type="text/css" />
+	</head>
+	<body>
+		<div id="wrapper"> </div>
+		<form id="quote-get-form" action="" >
+			<div class="sources">
+				<div>
+					<input id="source-1" type="radio" name="src" value="heroku" checked>
+					<label for="source-1">herokuapp</label>
+				</div>
+				<div>
+					<input id="source-2" type="radio" name="src" value="qdesign">
+					<label for="source-2">quotesondesign</label>
+				</div>
+			</div>
+			<button id="get-quote" type="submit">Get Quote</button>	
+		</form>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

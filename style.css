@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Arya:400,700');
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	color: #000;
+	min-width: 320px;
+	background-color: maroon;
+	font: 18px/1.5 arial, helvetica, sans-serif;
+	background-image: linear-gradient(to top right, rgba(0,0,0,0) 35%, rgba(255,255,255, .3) 50%, rgba(0,0,0,0) 65%);
+}
+/* General reset */
+h1, h2, h3, h4,h5, h6, p { margin: 0;}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+form, fieldset {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+}
+img {
+	border-style: none;
+	display: block;
+}
+input, select, textarea {
+	vertical-align: middle;
+	font: 100% arial, helvetica, sans-serif;
+}
+a {
+	color: #f00;
+	text-decoration: none;
+}
+a:hover {text-decoration: underline;}
+/* General settings */
+#wrapper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+blockquote {
+	max-width: 50%;
+	padding: 2em;
+	background: #fdc;
+	border-radius: 20px;
+	box-shadow: 5px 5px 10px 2px rgba(0,0,0, .5);
+}
+blockquote p {
+	font-family: Arya, sans-serif;
+	font-size: 18px;
+}
+
+cite {
+	font-style: italic;
+	font-size: .75em;
+	display: block;
+	text-align: right;
+	padding-bottom: .5em;
+	margin-bottom: .75em;
+	border-bottom: 1px solid #444;
+}
+
+.sources {
+	position: fixed;
+	top: 5%;
+	right: 5%;
+	border: 4px groove #a00;
+	border-radius: 10px;
+	overflow: hidden;
+	font-weight: bold;
+	color: #fff;
+}
+.sources label {
+	display: block;
+	padding: 1em;
+}
+.sources label {
+	transition: all .5s;
+}
+.sources input:checked + label {
+	background-color: rgba(255, 255, 255, .5);
+	color: #000;
+}
+
+.tw {
+	display: block;
+  color: #53A4E5;
+}
+
+#get-quote {
+	position: fixed;
+	bottom: 10%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	font-size: 200%;
+	font-weight: bold;
+	padding: 1em 2em;
+	border-radius: 10px;
+	background-color: #080;
+	color: #fff;
+	text-shadow: 1px 2px #000;
+}
+
+#get-quote:active {
+	text-shadow: -1px -2px #000;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	blockquote {
+		max-width: 80%;
+		padding: .75em;
+	}
+	.sources {
+		top: 2.5%;
+		right: 2%;
+	}
+	.sources > div {
+		float: left;
+	}
+	.sources label {
+		padding: .5em;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	body {
+		height: 100%;
+		min-height: 100%;
+		position: relative;
+	}
+	
+	blockquote {
+		max-width: 98%;
+		flex: 1;
+		padding: .5em;
+	}
+	.sources {
+		position: absolute;
+	}
+	#get-quote {
+		bottom: 2%;
+		padding: .5em 1em;
+		font-size: 125%;
+		position: absolute;
+	}
+
+}
+
+@media screen and (max-width: 350px) {
+	body {
+		height: auto;
+		min-height: 100%;
+		position: relative;
+		background-image: none;
+	}
+
+		#wrapper {
+			display: block;
+			padding: 60px 1%;
+		}
+}
+
+@media screen and (max-height: 450px) {
+
+	body {
+		height: auto;
+		min-height: 100%;
+		position: relative;
+		background-image: none;
+	}
+	
+	blockquote {
+		max-width: 98%;
+		flex: 1;
+		padding: .5em;
+	}
+	.sources {
+		position: absolute;
+	}
+	#get-quote {
+		bottom: 2%;
+		padding: .5em 1em;
+		font-size: 125%;
+		position: absolute;
+	}
+	#wrapper {
+		display: block;
+		padding: 60px 1%;
+	}
+
+}
+
