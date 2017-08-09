@@ -13,29 +13,54 @@ $(document).ready(function(){
 			}
 		}
 	};
-	$("#quote-get-form").on('submit', randomQuote);
 
-	function randomQuote(event) {
+	$("#quote-get-form").on('submit', getQuote);
+
+	function getQuote(event) {
 		event.preventDefault();
 		var key = $(this).find('input:checked').val();
-		$("#wrapper blockquote").remove();
+
 		$.ajax({
-      url:    quoteSources[key].url,
-      cache: false,
-      success: quoteSources[key].handler,
-      error: function(err) {
-        console.dir("Error:" + err);
-        }
-    });
+		  url:    quoteSources[key].url,
+		  cache: false,
+		  success: quoteSources[key].handler,
+		  error: function(xhr, errStatus, errThrown) {
+				console.log (errStatus, errThrown);
+			}
+		});
 	}
 
 	function drawQuote(content, author) {
-    $("#wrapper blockquote").remove();
+		clearQuote();
 		var quoteContainer = $("<blockquote />");
 		quoteContainer.html(content + "<cite>" + author + "</cite>");
 		var tweetURI = 'https://twitter.com/intent/tweet?hashtags=quotes&text="' +
-				$(content).text() + '" ' + author;
+			$(content).text() + '" ' + author;
 		quoteContainer.append('<a class="tw" href="' + encodeURI(tweetURI) + '" target="_blank"><i class="fa fa-twitter"></i> Tweet me!</a>');
 		quoteContainer.appendTo($("#wrapper"));
-  }
+	}
+
+	function clearQuote() {
+		$("#wrapper blockquote").remove();
+	}
+
+	function AppError (errContainer) {
+		this.container = errContainer;
+	}
+
+	AppError.prototype.showError = function (errMessage) {
+		this.container.html('This source do not allow, Try another source');
+		console.log(errMessage);
+	};
+	AppError.prototype.showTimeout = function () {
+		this.container.html('Quote source has a problem, try another source');
+	};
+
+	AppError.prototype.showAbort = function () {
+		
+	};
+
+	AppError.prototype.showParseError = function () {
+		
+	};
 });
